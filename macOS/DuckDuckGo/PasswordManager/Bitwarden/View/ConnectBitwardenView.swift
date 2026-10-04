@@ -233,11 +233,9 @@ private struct ConnectToBitwardenView: View {
     let canNotAccessSandboxContainers: Bool
 
     private var selectBitwardenStepTwoText: String {
-        if #available(macOS 13.0, *) {
-            return UserText.selectBitwardenSettings
-        } else {
-            return UserText.selectBitwardenPreferences
-        }
+        // Bitwarden Desktop currently exposes Preferences in the Mac menu bar
+        // (Settings was removed / relocated in recent Bitwarden UI updates).
+        return UserText.selectBitwardenPreferences
     }
 
     var body: some View {
